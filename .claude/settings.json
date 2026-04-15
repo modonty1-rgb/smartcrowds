@@ -6,7 +6,15 @@
       "Bash(npm run *)",
       "WebFetch(domain:smartcrowds-sigma.vercel.app)",
       "Bash(npx vercel *)",
-      "Bash(grep -rn \"proxy\\\\|middleware\" node_modules/next-intl/dist/*.d.ts)"
+      "Bash(grep -rn \"proxy\\\\|middleware\" node_modules/next-intl/dist/*.d.ts)",
+      "Bash(npm start *)",
+      "Bash(curl -s http://localhost:3000/en)",
+      "Bash(npm show *)",
+      "Bash(node -e \"const v=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\); const a=JSON.parse\\(v\\); console.log\\(a.slice\\(-10\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(pnpm add *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/en)",
+      "Bash(npx kill-port *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001/en)"
     ]
   }
 }
