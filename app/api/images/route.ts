@@ -197,32 +197,32 @@ export async function POST(req: NextRequest) {
       // Revalidate caches relevant to the updated table and homepage
       switch (table) {
         case 'product':
-          revalidateTag('products');
+          revalidateTag('products', 'max');
           revalidatePath('/');
           break;
         case 'company':
-          revalidateTag('company');
+          revalidateTag('company', 'max');
           revalidatePath('/');
           break;
         case 'category':
-          revalidateTag('categories');
+          revalidateTag('categories', 'max');
           revalidatePath('/');
           break;
         case 'offer':
-          revalidateTag('promotions');
+          revalidateTag('promotions', 'max');
           revalidatePath('/');
           break;
         case 'testimonial':
-          revalidateTag('about');
+          revalidateTag('about', 'max');
           revalidatePath('/about');
           break;
         case 'blog':
-          revalidateTag('posts');
+          revalidateTag('posts', 'max');
           revalidatePath('/blog');
           revalidatePath('/', 'layout');
           break;
         case 'projects':
-          revalidateTag('projects');
+          revalidateTag('projects', 'max');
           revalidatePath('/projects');
           revalidatePath('/', 'layout');
           break;
