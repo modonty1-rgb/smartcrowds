@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm install *)",
       "Bash(npx prisma *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "WebFetch(domain:smartcrowds-sigma.vercel.app)",
+      "Bash(npx vercel *)",
+      "Bash(grep -rn \"proxy\\\\|middleware\" node_modules/next-intl/dist/*.d.ts)"
     ]
   }
 }
