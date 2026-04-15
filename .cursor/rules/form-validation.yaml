@@ -1,0 +1,34 @@
+description: Enforce consistent usage of React Hook Form and Zod in all forms
+globs:
+  - app/**/*Form.tsx
+  - app/**/*Form.jsx
+  - app/**/*FormComponent.tsx
+  - app/**/*FormComponent.jsx
+alwaysApply: true
+
+rules:
+  - if: file.includes("useForm")
+    then:
+      - mustMatch: "import\\s+\\{\\s*useForm\\s*\\}\\s+from\\s+['\"]react-hook-form['\"]"
+        severity: error
+        message: "❌ Forms must import useForm from react-hook-form."
+
+      - mustMatch: "import\\s+\\{.*z.*\\}\\s+from\\s+['\"]zod['\"]"
+        severity: error
+        message: "❌ You must use Zod for validation."
+
+      - mustMatch: "const\\s+schema\\s*=\\s*z\\.object\\("
+        severity: error
+        message: "❌ Define a Zod schema with z.object()."
+
+      - mustMatch: "resolver:\\s*zodResolver\\(schema\\)"
+        severity: error
+        message: "❌ useForm must use zodResolver(schema) for validation."
+
+      - mustMatch: "\\.errors\\."
+        severity: error
+        message: "❌ Show validation error messages using formState.errors."
+
+      - mustInclude: "<FormField"
+        severity: error
+        message: "❌ Use consistent form field components like <FormField>."

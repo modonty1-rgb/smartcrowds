@@ -1,0 +1,29 @@
+description: Enforce code cleanup best practices for React/Next.js codebase
+
+globs:
+  - app/**/*.tsx
+  - app/**/*.ts
+  - app/**/*.jsx
+  - app/**/*.js
+alwaysApply: true
+
+rules:
+  - mustNotInclude: "// TODO"
+    severity: warning
+    message: "⚠️ Remove TODO comments before merging."
+
+  - mustNotInclude: "// FIXME"
+    severity: warning
+    message: "⚠️ Remove FIXME comments before merging."
+
+  - mustNotInclude: "console.log"
+    severity: warning
+    message: "⚠️ Remove console.log statements before merging."
+
+  - mustNotInclude: "debugger"
+    severity: error
+    message: "❌ Remove debugger statements from production code."
+
+  - mustNotInclude: "var "
+    severity: warning
+    message: "⚠️ Use let or const instead of var." 

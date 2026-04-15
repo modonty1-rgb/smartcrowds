@@ -1,0 +1,15 @@
+description: Enforce reasonable component size for maintainability
+
+globs:
+  - app/**/*.tsx
+  - app/**/*.jsx
+alwaysApply: true
+
+rules:
+  - mustNotExceedLines: 200
+    severity: warning
+    message: "⚠️ Component exceeds 200 lines. Consider splitting into smaller components."
+
+  - mustNotExceedFunctions: 5
+    severity: warning
+    message: "⚠️ Component contains more than 5 functions. Consider refactoring." 

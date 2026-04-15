@@ -1,0 +1,21 @@
+description: Enforce error handling best practices
+
+globs:
+  - app/**/*.tsx
+  - app/**/*.ts
+  - app/**/*.jsx
+  - app/**/*.js
+alwaysApply: true
+
+rules:
+  - mustMatch: "try {"
+    severity: warning
+    message: "⚠️ Use try/catch for error-prone code."
+
+  - mustMatch: "catch ("
+    severity: warning
+    message: "⚠️ Handle errors in catch blocks."
+
+  - mustNotInclude: "throw '"
+    severity: error
+    message: "❌ Use Error objects when throwing errors, not strings." 

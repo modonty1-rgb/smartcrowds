@@ -1,0 +1,17 @@
+description: Enforce SOLID principles and code simplicity
+
+globs:
+  - app/**/*.tsx
+  - app/**/*.ts
+  - app/**/*.jsx
+  - app/**/*.js
+alwaysApply: true
+
+rules:
+  - mustNotExceedFunctions: 1
+    severity: warning
+    message: "⚠️ Each component should have a single responsibility."
+
+  - mustNotInclude: "complex logic"
+    severity: warning
+    message: "⚠️ Avoid complex logic in components. Extract to helpers or hooks." 

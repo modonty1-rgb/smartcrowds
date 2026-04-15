@@ -1,0 +1,15 @@
+description: Enforce consistent folder structure for Next.js project
+
+globs:
+  - app/**/*
+  - pages/**/*
+alwaysApply: true
+
+rules:
+  - mustMatch: "components|hooks|utils|pages|api"
+    severity: warning
+    message: "⚠️ Use standard folders: components, hooks, utils, pages, api."
+
+  - mustNotInclude: "misc|temp|old"
+    severity: warning
+    message: "⚠️ Avoid using folders named misc, temp, or old." 

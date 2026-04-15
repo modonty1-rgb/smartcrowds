@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'sweetalert2/dist/sweetalert2.min.css';
+
+@layer base {
+  :root {
+    /* Brand Colors - Light Theme */
+    /* Black: Primary text, headers, strong elements */
+    --primary: 0 0% 0%;
+    --primary-foreground: 48 100% 50%;
+    
+    /* Yellow: Accent, CTAs, highlights - Vibrant and energetic */
+    --accent: 48 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    
+    /* Gray: Backgrounds, borders, muted elements */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 8%;
+    
+    /* Card surfaces - Slightly warmer gray for depth */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    
+    /* Popover/Dropdown - Clean white with subtle shadow hint */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    
+    /* Secondary - Medium gray for subtle elements */
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 8%;
+    
+    /* Muted - Light gray for less important text */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    
+    /* Borders & Inputs - Soft gray lines */
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    
+    /* Ring/Focus - Yellow for interactive focus states */
+    --ring: 48 100% 50%;
+    
+    /* Destructive - Red for errors (kept accessible) */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Brand Colors - Dark Theme */
+    /* Yellow becomes primary - Bold and energetic on dark */
+    --primary: 48 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    
+    /* Black: Deep backgrounds for contrast */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    
+    /* Cards - Rich dark gray with subtle warmth */
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
+    
+    /* Popover - Slightly lighter than card for hierarchy */
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Secondary - Dark gray for depth */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 48 100% 50%;
+    
+    /* Muted - Medium gray for secondary text */
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+    
+    /* Accent - Yellow highlights pop on dark */
+    --accent: 48 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    
+    /* Borders - Subtle dark gray lines */
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    
+    /* Ring/Focus - Bright yellow for visibility in dark */
+    --ring: 48 100% 60%;
+    
+    /* Destructive - Softer red for dark theme */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+[dir="rtl"] {
+  direction: rtl;
+}
+
+html[dir="rtl"] body {
+  font-family: var(--font-arabic), 'Arial', sans-serif;
+}
+
+@layer utilities {
+  /* Brand gradient utilities */
+  .gradient-brand {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+  
+  .gradient-brand-subtle {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
+  
+  /* Yellow accent glow effect */
+  .glow-yellow {
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
+  }
+  
+  /* Brand border accent */
+  .border-brand {
+    border-color: hsl(var(--accent));
+  }
+  
+  /* Text with brand gradient */
+  .text-brand-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Subtle yellow background tint */
+  .bg-accent-subtle {
+    background-color: hsl(var(--accent) / 0.1);
+  }
+  
+  /* Hover effect for interactive elements */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsl(var(--accent) / 0.2);
+  }
+}
+
+/* Tiptap Editor Styles */
+.ProseMirror {
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: hsl(var(--muted-foreground));
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+

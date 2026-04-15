@@ -1,0 +1,14 @@
+description: Enforce consistent component typing in React/Next.js codebase
+
+globs:
+  - app/**/*.tsx
+alwaysApply: true
+
+rules:
+  - mustMatch: "React.FC"
+    severity: error
+    message: "❌ All components must use React.FC for type safety."
+
+  - mustMatch: "Props"
+    severity: warning
+    message: "⚠️ Define and use a Props type/interface for all component props." 

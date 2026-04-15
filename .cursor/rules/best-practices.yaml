@@ -1,0 +1,41 @@
+description: Enforce best practices for React/Next.js codebase
+
+globs:
+  - app/**/*.tsx
+  - app/**/*.ts
+  - app/**/*.jsx
+  - app/**/*.js
+alwaysApply: true
+
+rules:
+  - mustNotInclude: "console.log"
+    severity: warning
+    message: "⚠️ Avoid leaving console.log statements in production code."
+
+  - mustNotInclude: "any"
+    severity: warning
+    message: "⚠️ Avoid using 'any' type. Use proper TypeScript types."
+
+  - mustMatch: "export default"
+    severity: error
+    message: "❌ All components must use default export."
+
+  - mustMatch: "function|const|let|var"
+    severity: error
+    message: "❌ All logic must be inside functions or variables, not in the global scope."
+
+  - mustNotInclude: "dangerouslySetInnerHTML"
+    severity: warning
+    message: "⚠️ Avoid using dangerouslySetInnerHTML unless absolutely necessary."
+
+  - mustMatch: "import React"
+    severity: warning
+    message: "⚠️ Explicitly import React in all component files for clarity."
+
+  - mustNotInclude: "require("
+    severity: warning
+    message: "⚠️ Use ES6 import syntax instead of require()."
+
+  - mustMatch: "use strict"
+    severity: warning
+    message: "⚠️ Consider using 'use strict' for better error checking." 

@@ -1,0 +1,227 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Author {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  bio       String?
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  posts     Post[]
+
+  @@map("authors")
+}
+
+model Post {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  titleAr         String?
+  slug            String    @unique
+  content         String
+  contentAr       String?
+  excerpt         String?
+  excerptAr       String?
+  featuredImage   String?
+  authorId        String    @db.ObjectId
+  author          Author     @relation(fields: [authorId], references: [id])
+  published       Boolean   @default(false)
+  publishedAt     DateTime?
+  locale          String    @default("en")
+  seoTitle        String?
+  seoDescription  String?
+  keywords        String[]
+  readingTime     Int?      @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@map("posts")
+  @@index([published, publishedAt])
+}
+
+model Project {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  nameAr          String?
+  slug            String        @unique
+  description     String?
+  descriptionAr  String?
+  featuredImage   String?
+  locale          String        @default("en")
+  seoTitle        String?
+  seoDescription  String?
+  keywords        String[]
+  startDate       DateTime?
+  endDate         DateTime?
+  published       Boolean       @default(false)
+  featured        Boolean       @default(false)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  images          ProjectImage[]
+
+  @@map("projects")
+  @@index([published, featured])
+}
+
+model ProjectImage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  projectId String   @db.ObjectId
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  imageUrl  String
+  alt       String?
+  altAr     String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("project_images")
+  @@index([projectId, order])
+}
+
+// ------------------ NEW MODELS ------------------
+model Job {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  nameAr      String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  requirements EventJobRequirement[]
+
+  @@map("jobs")
+}
+
+model Location {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  city      String
+  address   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  events    Event[]
+
+  @@map("locations")
+}
+
+model Nationality {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  nameAr      String
+  nameEn      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  subscribers EventSubscriber[]
+
+  @@map("nationalities")
+}
+
+model Event {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  titleAr     String?
+  description String
+  descriptionAr String?
+  date        DateTime
+  imageUrl    String?
+  requirements String[]
+  locationId  String   @db.ObjectId
+  location    Location @relation(fields: [locationId], references: [id])
+  published   Boolean  @default(false)
+  acceptJobs  Boolean  @default(true)
+  completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  jobs        EventJobRequirement[]
+  subscribers EventSubscriber[]
+
+  @@map("events")
+  @@index([locationId])
+  @@index([published])
+  @@index([completed])
+}
+
+model EventJobRequirement {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  eventId    String   @db.ObjectId
+  jobId      String   @db.ObjectId
+  ratePerDay Float?
+  event      Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  job        Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  subscribers EventSubscriber[]
+
+  @@map("event_job_requirements")
+}
+
+model EventSubscriber {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  eventId         String   @db.ObjectId
+  event           Event    @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  jobRequirementId String? @db.ObjectId
+  jobRequirement  EventJobRequirement? @relation(fields: [jobRequirementId], references: [id], onDelete: SetNull)
+  nationalityId   String   @db.ObjectId
+  nationality     Nationality @relation(fields: [nationalityId], references: [id], onDelete: Restrict)
+  name            String
+  mobile          String
+  email           String
+  idNumber        String
+  age             Int
+  dateOfBirth     DateTime?
+  accepted        Boolean  @default(false)
+  idImageUrl      String?
+  personalImageUrl String?
+  idExpiryDate    DateTime?
+  iban            String?
+  bankName        String?
+  accountHolderName String?
+  gender          String?
+  city            String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("event_subscribers")
+  @@index([eventId])
+  @@index([email])
+  @@index([idNumber])
+  @@index([jobRequirementId])
+  @@index([nationalityId])
+  @@unique([eventId, idNumber])
+}
+
+// ------------------ CLIENTS ------------------
+model Client {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  logoUrl    String
+  websiteUrl String?
+  published  Boolean  @default(false)
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("clients")
+  @@index([published, order])
+}
+
+// ------------------ CONTACT MESSAGES ------------------
+model ContactMessage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String
+  phone     String?
+  message   String
+  status    String   @default("NEW")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("contact_messages")
+  @@index([status])
+  @@index([createdAt])
+}
+

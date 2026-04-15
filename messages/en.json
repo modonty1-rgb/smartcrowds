@@ -1,0 +1,148 @@
+{
+  "common": {
+    "companyName": "SMART",
+    "companyTagline": "Crowd Management & Event Organization",
+    "nav": {
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "events": "Applay Now",
+      "projects": "Our Projects",
+      "blog": "Blog",
+      "contact": "Contact",
+      "dashboard": "Dashboard"
+    },
+    "cta": {
+      "contactUs": "Contact Us",
+      "learnMore": "Learn More",
+      "viewAll": "View All"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Leading Crowd Management Solutions",
+      "subtitle": "Professional event organization and crowd management services in Saudi Arabia",
+      "description": "SMART is one of the leading companies in the field of crowd management and event organization in the Kingdom of Saudi Arabia."
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive solutions for event organization"
+    }
+  },
+  "about": {
+    "title": "About SMART",
+    "description": "SMART is one of the leading companies in the field of crowd management and event organization in the Kingdom of Saudi Arabia. The company enjoys extensive experience in providing comprehensive solutions for organizing large-scale and complex events, including the deployment of specialized teams to manage traffic flow and maintain order at major events.",
+    "vision": {
+      "title": "Our Vision",
+      "content": "To be the leading company in the Kingdom of Saudi Arabia in the field of crowd management and event organization, offering innovative and safe solutions that contribute to the success of major events and enhance audience experience."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "Our mission is to deliver professional services in crowd management using the latest technologies and advanced security systems to ensure the safety of visitors and participants, and to enable optimal coordination between teams across all events."
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "items": {
+      "trafficControl": {
+        "title": "Traffic Control",
+        "description": "Managing and organizing traffic within and around event areas using modern technologies to ensure smooth movement."
+      },
+      "guidance": {
+        "title": "Guidance & Orientation",
+        "description": "We ensure visitors are guided smoothly within events and exhibitions to prevent confusion, while offering assistance when needed."
+      },
+      "security": {
+        "title": "Security & Safety",
+        "description": "Providing highly trained security teams, applying preventive measures to ensure audience safety and overall security."
+      },
+      "strategicPlanning": {
+        "title": "Strategic Planning",
+        "description": "Developing detailed traffic and security plans for large and complex projects based on comprehensive studies and in-depth analysis."
+      },
+      "crowdManagement": {
+        "title": "Crowd Management",
+        "description": "Designing and implementing effective organization strategies to ensure smooth event flow."
+      },
+      "personalProtection": {
+        "title": "Personal Protection",
+        "description": "Providing personal protection services for VIPs and officials during events and occasions."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message",
+      "submit": "Send Message"
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "social": "Follow Us"
+    }
+  },
+  "validation": {
+    "eventIdRequired": "Event ID is required",
+    "nameTooShort": "Name is too short",
+    "mobileTooShort": "Mobile number is too short",
+    "invalidEmail": "Invalid email",
+    "idNumberRequired": "ID number is required",
+    "idNumberInvalid": "Invalid ID number",
+    "idNumberNotString": "ID number must be a string",
+    "idNumberDigitsOnly": "ID number must contain only digits",
+    "idNumberLength": "ID number must be exactly 10 digits",
+    "idNumberInvalidFormat": "Invalid ID number format. Must start with 1 (National ID) or 2, 7, 8 (Iqama)",
+    "idNumberCheckDigit": "Invalid ID number. Check digit mismatch",
+    "nationalityRequired": "Nationality is required",
+    "agePositive": "Age must be a positive number",
+    "ageMin": "Age must be at least 1",
+    "ageMax": "Age must be at most 150",
+    "agreeRequired": "You must agree to the requirements",
+    "jobRequired": "Job selection is required",
+    "idImageRequired": "ID image is required",
+    "personalImageRequired": "Personal image is required",
+    "nameTooLong": "Name is too long",
+    "mobileTooLong": "Mobile number is too long",
+    "emailTooLong": "Email is too long",
+    "idExpiryRequired": "ID expiry date is required",
+    "ibanRequired": "IBAN is required",
+    "ibanInvalid": "Invalid IBAN format",
+    "bankNameRequired": "Bank name is required",
+    "accountHolderRequired": "Account holder name is required",
+    "genderRequired": "Gender is required"
+  },
+  "placeholders": {
+    "name": "Add your name",
+    "mobile": "05XXXXXXX",
+    "email": "your.email@example.com",
+    "idNumber": "10 digits",
+    "age": "Enter age",
+    "selectNationality": "Select nationality",
+    "selectJob": "Select a job",
+    "idExpiryDate": "Select ID expiry date",
+    "iban": "SA00XXXXXXXXXXXXXX",
+    "bankName": "Enter bank name",
+    "accountHolderName": "Enter account holder name",
+    "selectGender": "Select gender"
+  },
+  "footer": {
+    "licenseNotice": ""
+  },
+  "pledge": {
+    "title": "Pledge of Information Accuracy",
+    "description": "I hereby declare that all information and data I have entered in this form is accurate and complete. I commit to inform the responsible authority immediately of any changes to this information. I also agree that providing inaccurate or misleading information may result in legal action against me. I bear full responsibility for any inaccurate or misleading information.",
+    "verified": "ID verified, please accept the pledge",
+    "accept": "I accept the pledge",
+    "cancel": "Cancel",
+    "save": "Save"
+  }
+}
+
+
+

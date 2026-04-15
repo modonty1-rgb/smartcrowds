@@ -1,0 +1,19 @@
+description: Enforce SEO best practices for React/Next.js codebase
+
+globs:
+  - app/**/*.tsx
+  - app/**/*.jsx
+alwaysApply: true
+
+rules:
+  - mustMatch: "<title>"
+    severity: error
+    message: "❌ All pages must have a <title> tag."
+
+  - mustMatch: "<meta name=\"description\""
+    severity: warning
+    message: "⚠️ All pages should have a meta description."
+
+  - mustMatch: "<h1>"
+    severity: warning
+    message: "⚠️ All pages should have a main heading (h1)." 

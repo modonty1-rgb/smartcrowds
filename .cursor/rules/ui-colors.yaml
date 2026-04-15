@@ -1,0 +1,15 @@
+description: Enforce consistent UI color usage
+
+globs:
+  - app/**/*.tsx
+  - app/**/*.jsx
+alwaysApply: true
+
+rules:
+  - mustNotInclude: "#"
+    severity: warning
+    message: "⚠️ Use theme variables instead of hardcoded hex colors."
+
+  - mustMatch: "className=.*(bg-|text-|border-)"
+    severity: warning
+    message: "⚠️ Use utility classes for color styling." 

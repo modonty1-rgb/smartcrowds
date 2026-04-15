@@ -1,0 +1,25 @@
+description: Enforce safety and security best practices for React/Next.js codebase
+
+globs:
+  - app/**/*.tsx
+  - app/**/*.ts
+  - app/**/*.jsx
+  - app/**/*.js
+alwaysApply: true
+
+rules:
+  - mustNotInclude: "eval("
+    severity: error
+    message: "❌ Never use eval()."
+
+  - mustNotInclude: "dangerouslySetInnerHTML"
+    severity: error
+    message: "❌ Avoid dangerouslySetInnerHTML for security reasons."
+
+  - mustNotInclude: "innerHTML"
+    severity: warning
+    message: "⚠️ Avoid using innerHTML directly."
+
+  - mustNotInclude: "document.cookie"
+    severity: warning
+    message: "⚠️ Avoid direct access to document.cookie. Use secure methods." 
